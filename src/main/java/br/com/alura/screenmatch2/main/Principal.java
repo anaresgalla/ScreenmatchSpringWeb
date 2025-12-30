@@ -226,7 +226,7 @@ public class Principal {
         List<Serie> filtroSeries = repositorio
                 /*.findByTotalTemporadasLessThanEqualAndAvaliacaoGreaterThanEqual
                         (totalTemporadas, avaliacao);*/
-                        .seriesPorTempoadaEAvaliacao(totalTemporadas, avaliacao);
+                        .seriesPorTemporadaEAvaliacao(totalTemporadas, avaliacao);
         System.out.println("*** SÉRIES FILTRADAS ***");
         filtroSeries.forEach(s->
                 System.out.println("Título: \"" + s.getTitulo() + "\"" +
