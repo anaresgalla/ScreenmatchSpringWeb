@@ -4,6 +4,7 @@ import br.com.alura.screenmatch2.dto.SerieDTO;
 import br.com.alura.screenmatch2.model.Serie;
 import br.com.alura.screenmatch2.repository.SerieRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -25,7 +26,8 @@ public class SerieService {
 
     public List<SerieDTO> obterLancamentos() {
         return converteDados(
-                repositorio.findTop5ByOrderByEpisodiosDataLancamentoDesc());
+                repositorio.lancamentosMaisRecentes(PageRequest.of(0, 5))
+        );
     }
 
     private List<SerieDTO> converteDados(List<Serie> series) {
