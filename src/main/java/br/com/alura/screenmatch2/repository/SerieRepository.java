@@ -53,4 +53,8 @@ public interface SerieRepository extends JpaRepository<Serie, Long> {
         ) DESC
     """)
     List<Serie> lancamentosMaisRecentes(Pageable pageable);
+
+    @Query("SELECT e FROM Serie s JOIN s.episodios e WHERE s.id = :id " +
+            "AND e.temporada = :numero")
+    List<Episodio> obterEpisodioPorTemporada(Long id, Long numero);
 }
