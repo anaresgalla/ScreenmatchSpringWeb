@@ -30,7 +30,7 @@ public interface SerieRepository extends JpaRepository<Serie, Long> {
     List<Episodio> episodiosPorTrecho(String trechoEpisodio);
 
     @Query("SELECT e FROM Episodio e WHERE e.serie = :serie AND e.avaliacao > 0"
-            + "ORDER BY e.avaliacao DESC")
+            + " ORDER BY e.avaliacao DESC")
     List<Episodio> topEpisodiosPorSerie(
             @Param("serie") Serie serie,
             Pageable pageable
